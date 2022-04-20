@@ -14,13 +14,16 @@ const InfoList = styled.div`
   border-radius: 30px;
   box-shadow: 0 0 10px #636363;
   z-index: 999;
+
   & > div:not(:last-child) {
     padding-right: 30px;
     border-right: 1px solid #00000025;
   }
 `;
 
-const InfoItem = styled.div``;
+const InfoItem = styled.div`
+  padding-left: 30px;
+`;
 
 const InfoItemTitle = styled.h2`
   font-size: 12px;
