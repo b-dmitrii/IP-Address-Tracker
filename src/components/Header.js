@@ -5,7 +5,7 @@ import arrowIcon from "../assets/icon-arrow.svg";
 import { Container } from "../Container";
 import { useDispatch } from "react-redux";
 import { setSearch } from "../store/ipInfoSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HeaderBg = styled.header`
   background: url(${headerBg});
@@ -66,6 +66,20 @@ export const Header = () => {
     dispatch(setSearch(searchValue));
     setSearchValue("");
   };
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.keyCode === 13) {
+        submitHundler();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  });
 
   return (
     <HeaderBg>
